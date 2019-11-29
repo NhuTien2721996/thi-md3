@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-header">
+    <h3>Chỉnh sửa</h3>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="EditAwesomeForm" (ngSubmit)="update()">
+      <div class="form-group">
+        <label>Tag</label>
+        <input type="text" class="form-control" formControlName="tag">
+        <div *ngIf="tag.invalid && tag.touched">
+          <div *ngIf="tag.errors.required">
+            <p class="text-danger"><i class="fa fa-exclamation-circle"></i>không được để trống</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>URL</label>
+        <input type="text" class="form-control" formControlName="url">
+        <div *ngIf="url.invalid && url.touched">
+          <div *ngIf="url.errors.required">
+            <p class="text-danger"><i class="fa fa-exclamation-circle"></i> không được để trống</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Descriptions</label>
+        <input type="text" class="form-control" formControlName="descriptions">
+        <div *ngIf="descriptions.invalid && descriptions.touched">
+          <div *ngIf="descriptions.errors.required">
+            <p class="text-danger"><i class="fa fa-exclamation-circle"></i>không được để trống</p>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!EditAwesomeForm.valid">Submit</button>
+      <button type="button" class="btn btn-secondary" routerLink="/awesome">Cancel</button>
+    </form>
+  </div>
+</div>
+
